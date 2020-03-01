@@ -1,7 +1,6 @@
 import {
   getAllPokemon,
   getPokemon
-} from './api-store'
-// } from './memory-store'
+} from './APP_TARGET-store'
 
 export { getAllPokemon, getPokemon };
