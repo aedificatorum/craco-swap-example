@@ -1,6 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {
+  getAllPokemon
+} from './Store';
 
 function App() {
   return (
@@ -19,6 +22,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <button onClick={async () => getAllPokemon()}>Get Pokemon</button>
     </div>
   );
 }
