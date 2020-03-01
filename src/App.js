@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
 import {
-  getAllPokemon,
-  getPokemon
+  getAllPokemon
 } from './Store';
 
 function App() {
