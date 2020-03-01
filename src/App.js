@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import PokemonList from "./PokemonList";
 import PokemonDetails from "./PokemonDetails";
-import { getAllPokemon } from "./Store";
+import { getAllPokemon, getPokemon } from "./Store";
 
 const Loading = () => {
   return <div>Loading...</div>;
@@ -20,9 +20,7 @@ function App() {
   }, []);
 
   const selectPokemon = async(pokemonName) => {
-    alert(`${pokemonName} I choose you!`);
-    // call the API for a single pokemon
-    // store pokemon details in state
+    setSelectPokemon(await getPokemon(pokemonName))
   } 
 
   return (
