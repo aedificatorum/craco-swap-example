@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./styles/tailwind-base.css";
+import "./styles/App.css";
 import PokemonList from "./PokemonList";
 import PokemonDetails from "./PokemonDetails";
 import { getAllPokemon, getPokemon } from "./Store";
@@ -19,12 +20,12 @@ function App() {
     getPokemonAsync();
   }, []);
 
-  const selectPokemon = async(pokemonName) => {
-    setSelectPokemon(await getPokemon(pokemonName))
-  } 
+  const selectPokemon = async pokemonName => {
+    setSelectPokemon(await getPokemon(pokemonName));
+  };
 
   return (
-    <div>
+    <div className="container">
       <h1>Pokebattle</h1>
       <div>
         {!pokemonList.length ? (
@@ -33,9 +34,13 @@ function App() {
           <PokemonList pokemon={pokemonList} selectPokemon={selectPokemon} />
         )}
       </div>
-      {selectedPokemon !== null && <div>
-        <PokemonDetails pokemon={selectedPokemon} />
-      </div>}
+      <div className="pokemonCardContainer">
+        {selectedPokemon !== null && (
+          <div>
+            <PokemonDetails pokemon={selectedPokemon} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
