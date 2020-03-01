@@ -1,5 +1,5 @@
 const getAllPokemon = async () => {
-  const result = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=5");
+  const result = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=10");
   const resultJson = await result.json();
   const allPokemon = resultJson.results;
   const pokemon = allPokemon.map(pokemon => {
@@ -11,7 +11,7 @@ const getAllPokemon = async () => {
 const getPokemon = async (name) => {
   const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
   const resultJson = await result.json();
-  const pokemon = {name: resultJson.name, type: resultJson.types.map(p => p.type.name), weight: resultJson.weight }
+  const pokemon = {name: resultJson.name, types: resultJson.types.map(p => p.type.name).join(","), weight: resultJson.weight, height: resultJson.height }
   return pokemon
 }
 

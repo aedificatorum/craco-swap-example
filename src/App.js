@@ -25,23 +25,24 @@ function App() {
   };
 
   return (
+    <div className="app">
+
     <div className="container">
       <h1>Pokebattle</h1>
       <div>
         {!pokemonList.length ? (
           <Loading />
-        ) : (
-          <PokemonList pokemon={pokemonList} selectPokemon={selectPokemon} />
-        )}
+          ) : (
+            <PokemonList pokemon={pokemonList} selectPokemon={selectPokemon} />
+            )}
       </div>
-      <div className="pokemonCardContainer">
-        {selectedPokemon !== null && (
-          <div>
-            <PokemonDetails pokemon={selectedPokemon} />
-          </div>
-        )}
-      </div>
+      {selectedPokemon !== null && (
+        <div className="pokemonCardContainer">
+          <PokemonDetails pokemon={selectedPokemon} />
+        </div>
+      )}
     </div>
+      </div>
   );
 }
 

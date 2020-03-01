@@ -5,10 +5,9 @@ const PokemonDetails = ({ pokemon }) => {
     <div>
       <section className="pokemon-card">
         <div className="name">{pokemon.name}</div>
-        <div className="pokemon-details">
-          {pokemon.type}
-          {pokemon.weight}
-        </div>
+        <div>📏: {pokemon.height}</div>
+        <div>⚖: {pokemon.weight}</div>
+        <div>{pokemon.types}</div>
       </section>
     </div>
   )
