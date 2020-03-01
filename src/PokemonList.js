@@ -6,7 +6,7 @@ const PokemonList = ({ pokemon, selectPokemon }) => {
       <h2>Select your pokemon...</h2>
       <ul>
         {pokemon.map(p => {
-          return <li key={p.name}>{p.name}</li>;
+          return <li key={p.name} onClick={async () => await selectPokemon(p.name)}>{p.name}</li>;
         })}
       </ul>
     </div>
