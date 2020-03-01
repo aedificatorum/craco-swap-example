@@ -8,4 +8,11 @@ const getAllPokemon = async () => {
   return pokemon;
 };
 
-export { getAllPokemon };
+const getPokemon = async (name) => {
+  const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  const resultJson = await result.json();
+  const pokemon = {name: resultJson.name, type: resultJson.types.map(p => p.type.name), weight: resultJson.weight }
+  return pokemon
+}
+
+export { getAllPokemon, getPokemon };
